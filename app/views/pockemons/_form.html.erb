@@ -1,0 +1,32 @@
+<%= form_with(model: pockemon, local: true) do |form| %>
+  <% if pockemon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pockemon.errors.count, "error") %> prohibited this pockemon from being saved:</h2>
+
+      <ul>
+      <% pockemon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :pockemon_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desciption %>
+    <%= form.text_field :desciption, id: :pockemon_desciption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :pockemon_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

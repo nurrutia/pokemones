@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pockemons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Desciption</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pockemons.each do |pockemon| %>
+      <tr>
+        <td><%= pockemon.name %></td>
+        <td><%= pockemon.desciption %></td>
+        <td><%= pockemon.user %></td>
+        <td><%= link_to 'Show', pockemon %></td>
+        <td><%= link_to 'Edit', edit_pockemon_path(pockemon) %></td>
+        <td><%= link_to 'Destroy', pockemon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pockemon', new_pockemon_path %>
